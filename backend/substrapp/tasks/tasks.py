@@ -1094,14 +1094,6 @@ def on_compute_plan(channel_name, compute_plan):
     model_keys = compute_plan['models_to_delete']
     status = compute_plan['status']
 
-    # Remove local folder and algo when compute plan is finished
-    if status in ['done', 'failed', 'canceled']:
-        remove_local_folders(compute_plan_key)
-        remove_algo_images(algo_keys)
-
-    # Remove intermediary models
-    if model_keys:
-        remove_intermediary_models(model_keys)
 
 
 @app.task(ignore_result=True)
