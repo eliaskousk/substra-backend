@@ -25,7 +25,7 @@ celeryworker:
 backend:
   settings: dev
   tokenStrategy: 'reuse'
-  defaultDomain: http://backend-org-4-substra-backend-server.org-4:80
+  defaultDomain: http://backend-org-4-substra-backend-server.org-4:8000
   kaniko:
     mirror: true
     cache:
@@ -34,8 +34,8 @@ backend:
           - image: eliaskousk/substra-tools:0.7.0-scikit
           - image: eliaskousk/substra-tools:0.7.0-tf
   service:
-    type: LoadBalancer
-    port: 80
+    type: ClusterIP
+    port: 8000
   ingress:
     enabled: true
     hosts:
