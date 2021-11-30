@@ -1097,7 +1097,8 @@ def on_compute_plan(channel_name, compute_plan):
     # Remove local folder and algo when compute plan is finished
     if status in ['done', 'failed', 'canceled']:
         remove_local_folders(compute_plan_key)
-        remove_algo_images(algo_keys)
+        if not settings.TASK['CACHE_DOCKER_IMAGES']:
+            remove_algo_images(algo_keys)
 
     # Remove intermediary models
     if model_keys:
