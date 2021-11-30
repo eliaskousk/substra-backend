@@ -12,7 +12,7 @@ registry:
   pullDomain: 127.0.0.1
   prepopulate:
     - image: eliaskousk/substra-tools:0.7.0-scikit
-    - image: eliaskousk/substra-tools:0.7.0-pytorch
+    - image: eliaskousk/substra-tools:0.7.0-pytorch-slim
 
 secrets:
   fabricConfigmap: network-org-4-hlf-k8s-fabric
@@ -32,7 +32,7 @@ backend:
       warmer:
         images:
           - image: eliaskousk/substra-tools:0.7.0-scikit
-          - image: eliaskousk/substra-tools:0.7.0-pytorch
+          - image: eliaskousk/substra-tools:0.7.0-pytorch-slim
   service:
     type: ClusterIP
     port: 8000
@@ -92,7 +92,7 @@ extraEnv:
   - name: DEFAULT_THROTTLE_RATES
     value: '120'
   - name: TASK_CACHE_DOCKER_IMAGES
-    value: 'False'
+    value: 'True'
   - name: BUILD_IMAGE
     value: 'True'
 
