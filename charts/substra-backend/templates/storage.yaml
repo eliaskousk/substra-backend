@@ -101,7 +101,7 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 50Gi
   {{- if $.Values.persistence.hostPath }}
   selector:
     matchLabels:
@@ -126,7 +126,7 @@ spec:
     name: {{ template "substra.fullname" $ }}-docker-cache
     namespace: {{ .Release.Namespace }}
   capacity:
-    storage: 10Gi
+    storage: 50Gi
   accessModes:
     - ReadWriteOnce
   hostPath:

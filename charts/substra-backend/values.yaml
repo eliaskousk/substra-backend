@@ -195,7 +195,7 @@ docker-registry:
   storage: filesystem
   persistence:
     enabled: true
-    size: 10Gi
+    size: 50Gi
     deleteEnabled: true
   service:
     type: NodePort
